@@ -1,31 +1,11 @@
 <%- include('../partials/header') %>
 
-<% if (post.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Date</th>
-          <th>Post</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% let total = 0 %>
-        <% post.forEach(function(p) { %>
-          <tr>
-            <td class="post-user"><img alt="avatar" src="<%= p.userAvatar %>"><%= p.userName %></td>
-            <td><%= p.createdAt.toLocaleDateString() %></td>
-            <td><%= p.content %></td>
-          </tr>
-        <% }); %>
-        <tr>
-          <td colspan="3"></td>
-          <td><strong><%= (total / posts.length).toFixed(1) %></strong></td>
-        </tr>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No Posts Yet</h5>
-  <% } %>
+<section id="show-page">
+
+    <div><%= post.userName %></div>
+    <div>Posted: </div>
+    <div><%= post.createdAt.toLocaleDateString() %></div>
+    <div><%= post.content %></div>
+
+</section>
 <%- include('../partials/footer') %>

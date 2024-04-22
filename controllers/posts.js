@@ -30,7 +30,7 @@ async function create(req, res) {
     req.body.userAvatar= req.user.avatar;
     try {
         const post = await Post.create(req.body);
-        res.redirect(`/posts/${post._id}`);
+        res.redirect('/posts');
     } catch (err) {
         console.log(err);
         res.redirect('/posts/new');
