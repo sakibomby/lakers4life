@@ -1,11 +1,31 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-
-    <div><%= post.userName %></div>
-    <div>Posted: </div>
-    <div><%= post.createdAt.toLocaleDateString() %></div>
-    <div><%= post.content %></div>
-
+    <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Post</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td class="post-user"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %></td>
+              <td><%= post.createdAt.toLocaleDateString() %></td>
+              <td><%= post.content %></td>
+            </tr>
+          <tr>
+            <td colspan="3"></td>
+          </tr>
+        </tbody>
+      </table>
+<h1>Update Post</h1>
+<form id="-post-form" method="POST"
+  action="/posts/<%= post._id %>?_method=PUT">
+  <label>Update Post:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Update Post">
+</form>
 </section>
 <%- include('../partials/footer') %>

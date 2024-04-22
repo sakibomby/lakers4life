@@ -4,8 +4,23 @@ module.exports = {
     index,
     show,
     new: newPost,
-    create
+    create,
+    update
 };
+
+async function update(req, res) {
+    try{
+        const updatedPost = await Post.findOneAndUpdate(
+            { _id: req.params.id}, 
+            req.body,
+            {new: true}
+        );
+        return res.redirect(`/posts/${updatedPost._id}`);
+    } catch (e) {
+        console.log(e.message);
+        return res.redirect('/posts');
+    }
+}
 
 async function index(req, res) {
     const posts = await Post.find({});
