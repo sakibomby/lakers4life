@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
 
-<h1>Posts</h1>
-<% if (posts.length) { %>
+<% if (post.length) { %>
     <table>
       <thead>
         <tr>
@@ -13,14 +12,11 @@
       </thead>
       <tbody>
         <% let total = 0 %>
-        <% posts.forEach(function(p) { %>
+        <% post.forEach(function(p) { %>
           <tr>
-            <td class="post-user"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></td>
+            <td class="post-user"><img alt="avatar" src="<%= p.userAvatar %>"><%= p.userName %></td>
             <td><%= p.createdAt.toLocaleDateString() %></td>
             <td><%= p.content %></td>
-            <% if (user?._id.equals(p.user)) { %>
-            <td><a href="/posts/<%= p._id %>">Update</a></td>
-            <% } %>
           </tr>
         <% }); %>
         <tr>
@@ -32,5 +28,4 @@
   <% } else { %>
     <h5>No Posts Yet</h5>
   <% } %>
-
 <%- include('../partials/footer') %>

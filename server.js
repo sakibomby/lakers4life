@@ -12,6 +12,7 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const postsRouter = require('./routes/posts');
 
 const app = express();
 // view engine setup
@@ -41,6 +42,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
