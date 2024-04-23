@@ -5,8 +5,14 @@ module.exports = {
     show,
     new: newPost,
     create,
-    update
+    update,
+    delete: deletePost
 };
+
+async function deletePost(req, res) {
+    await Post.findOneAndDelete({_id: req.params.id, user: req.user._id});
+    res.redirect('/posts');
+}
 
 async function update(req, res) {
     try{

@@ -13,6 +13,8 @@ router.get('/:id',ensureLoggedIn, postsCtrl.show);
 router.put('/:id', ensureLoggedIn, postsCtrl.update);
 // POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
+// DELETE /posts/:id
+router.delete('/:id', ensureLoggedIn, postsCtrl.delete);
 
 
 module.exports = router;

@@ -14,18 +14,46 @@
               <td class="post-user"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %></td>
               <td><%= post.createdAt.toLocaleDateString() %></td>
               <td><%= post.content %></td>
-            </tr>
-          <tr>
-            <td colspan="3"></td>
-          </tr>
-        </tbody>
-      </table>
-<h1>Update Post</h1>
-<form id="-post-form" method="POST"
-  action="/posts/<%= post._id %>?_method=PUT">
-  <label>Update Post:</label>
-  <textarea name="content"></textarea>
-  <input type="submit" value="Update Post">
-</form>
-</section>
+              <td>
+                <% if (user?._id.equals(post.user)) { %>
+                  <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Delete Post</button>
+                  </form>
+                  <% } %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3"></td>
+              </tr>
+            </tbody>
+          </table>
+          <% if (user?._id.equals(post.user)) { %>
+            <h1>Update Post</h1>
+            <form id="-post-form" method="POST"
+            action="/posts/<%= post._id %>?_method=PUT">
+            <label>Update Post:</label>
+            <textarea name="content"></textarea>
+            <input type="submit" value="Update Post">
+          </form>
+          <% } %>
+        </section>
+        <thead>
+          <th>Comments</th>
+        </thead>
+        <tbody>
+            <% post.comments.forEach(function(c) { %>
+              <tr>
+                <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
+                <td><%= c.createdAt.toLocaleDateString() %></td>
+                <td><%= c.content %></td>
+                <tr>
+            <% }); %>
+            <% if (user) { %>
+              <h2>New Comment</h2>
+              <form action="/posts/<%= post._id %>/comments" method="POST">
+                <input name="content">
+                <button type="submit">ADD COMMENT</button>
+              </form>
+            <% } %>
+          </tbody>
 <%- include('../partials/footer') %>
