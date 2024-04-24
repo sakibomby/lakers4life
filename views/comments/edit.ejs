@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<% post.comments.forEach(function(comment) { %>
+    <div class="comment">
+      <%= comment.content %><br>
+      <% if (user && comment.user.equals(user._id)) { %>
+        <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete Comment</button>
+        </form>
+      <% } %>
+    </div>
+  <% }) %>
+<form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <input name="text" value="<%= comment.text %>">
+    <button type="submit">Update Comment</button>
+  </form>
+
+<%- include('../partials/footer') %>

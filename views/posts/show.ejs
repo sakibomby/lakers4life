@@ -46,7 +46,12 @@
                 <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
                 <td><%= c.createdAt.toLocaleDateString() %></td>
                 <td><%= c.content %></td>
-                <tr>
+                <td>
+                  <% if (user?._id.equals(c.user)) { %>
+                    <a href="/comments/<%= c._id %>/edit">Edit Comment</a>
+                  <% } %>
+                </td>
+              <tr>
             <% }); %>
             <% if (user) { %>
               <h2>New Comment</h2>
