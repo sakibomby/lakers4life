@@ -11,7 +11,7 @@
     </div>
   <% }) %>
 <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
-    <input name="text" value="<%= comment.text %>">
+    <input name="content" value="<%= comment.content %>">
     <button type="submit">Update Comment</button>
   </form>
 

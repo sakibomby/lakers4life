@@ -16,18 +16,17 @@ async function deleteComment(req, res) {
 }
 
 async function update(req, res) {
-    const post = await Post.findOne({ 'comments._id': req.params.id });
+    const post = await Post.findOne({ 'comments._id': req.params.id, 'user': req.user._id });
     const comment = post.comments.id(req.params.id);
     if (!comment.user.equals(req.user._id)) return res.redirect(`/posts/${post._id}`);
-    comment.comment = req.body.comment;
-    console.log(comment.comment);
+    comment.content = req.body.content;
     try {
         await post.save();
     } catch (err) {
         console.log(err.message);
     }
     res.redirect(`/posts/${post._id}`);
-};
+}
 
 async function edit(req, res) {
     const post = await Post.findOne({'comments._id': req.params.id});
