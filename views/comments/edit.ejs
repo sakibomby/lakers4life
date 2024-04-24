@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
 <% post.comments.forEach(function(comment) { %>
+    <% if (user && comment.user.equals(user._id)) { %>
     <div class="comment">
       <%= comment.content %><br>
-      <% if (user && comment.user.equals(user._id)) { %>
         <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete Comment</button>
         </form>

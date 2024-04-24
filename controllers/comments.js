@@ -8,17 +8,17 @@ module.exports = {
 };
 
 async function deleteComment(req, res) {
-    const post = await Post.findOne({'comments_id': req.params.id, 'user': req.user._id});
-    if (!post) return res.redirect(`/posts/${req.params.id}`);
+    const post = await Post.findOne({'comments._id': req.params.id, 'user': req.user._id});
+    if (!post) return res.redirect(`/posts/${post._id}`);
     post.comments.remove(req.params.id);
     await post.save();
-    res.redirect(`/posts/${req.params.id}`);
+    res.redirect(`/posts/${post._id}`);
 }
 
 async function update(req, res) {
     const post = await Post.findOne({ 'comments._id': req.params.id });
     const comment = post.comments.id(req.params.id);
-    if (!comment.user.equals(req.user._id)) return res.redirect(`/posts/${req.params.id}`);
+    if (!comment.user.equals(req.user._id)) return res.redirect(`/posts/${post._id}`);
     comment.comment = req.body.comment;
     console.log(comment.comment);
     try {
@@ -26,7 +26,7 @@ async function update(req, res) {
     } catch (err) {
         console.log(err.message);
     }
-    res.redirect(`/posts/${req.params.id}`);
+    res.redirect(`/posts/${post._id}`);
 };
 
 async function edit(req, res) {
