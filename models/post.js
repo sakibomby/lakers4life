@@ -19,19 +19,22 @@ const commentSchema = new Schema({
 
 const postSchema = new Schema({
     content: {
-        type: String,
-        required: true
+      type: String,
+      required: true
       },
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+    image: {
+      type: String
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
       },
       userName: String,
       userAvatar: String,
-      comments: [commentSchema]
+    comments: [commentSchema]
     }, {
-      timestamps: true
+    timestamps: true
     });
 
 module.exports = mongoose.model('Post', postSchema);
