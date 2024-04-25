@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
   <title>Lakers4Life</title>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-    &nbsp;|&nbsp;
-    <a href="/posts">All Posts</a>
-    &nbsp;|&nbsp;
-    <% if (user) { %>
-    <a href="/posts/new">Add Post</a>
-    &nbsp;|&nbsp;
-    <a href="/logout">Log Out</a>
-    &nbsp;|&nbsp;
-    <% } else { %>
-      <a href="/auth/google" class="login">Log In/Sign Up&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
-  </nav>
-  <h1>Lakers4Life</h1>
+    <nav class="nav">
+        <h1 id="title">Lakers4Life</h1>
+        <img src="https://static.vecteezy.com/system/resources/previews/015/863/698/original/los-angeles-lakers-logo-on-transparent-background-free-vector.jpg" alt="">
+        <a href="/">Home</a>
+        &nbsp;|&nbsp;
+        <a href="/posts">All Posts</a>
+        &nbsp;|&nbsp;
+        <% if (user) { %>
+        <a href="/posts/new">Add Post</a>
+        &nbsp;|&nbsp;
+        <a href="/logout">Log Out</a>
+        &nbsp;|&nbsp;
+        <% } else { %>
+        <a href="/auth/google" class="login">Log In/Sign Up&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+    </nav>
+  <main>
 
     

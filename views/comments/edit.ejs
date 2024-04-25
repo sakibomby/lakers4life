@@ -4,7 +4,7 @@
     <% if (user && comment.user.equals(user._id)) { %>
     <div class="comment">
       <%= comment.content %><br>
-        <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+       <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete Comment</button>
         </form>
       <% } %>
@@ -13,6 +13,6 @@
 <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
     <input name="content" value="<%= comment.content %>">
     <button type="submit">Update Comment</button>
-  </form>
+</form>
 
 <%- include('../partials/footer') %>

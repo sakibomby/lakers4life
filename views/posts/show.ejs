@@ -1,67 +1,63 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Post</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td class="post-user"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %></td>
-              <td><%= post.createdAt.toLocaleDateString() %></td>
-              <% if (post.image) { %>
-              <td><img src="<%= post.image %>" alt=""/></td>
-              <% } %>
-              <td><%= post.content %></td>
-              <td>
-                <% if (user?._id.equals(post.user)) { %>
-                  <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
-                    <button type="submit">Delete Post</button>
-                  </form>
-                  <% } %>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3"></td>
-              </tr>
-            </tbody>
-          </table>
-          <% if (user?._id.equals(post.user)) { %>
-            <h1>Update Post</h1>
-            <form id="-post-form" method="POST"
-            action="/posts/<%= post._id %>?_method=PUT">
-            <label>Update Post:</label>
-            <textarea name="content"></textarea>
-            <input type="submit" value="Update Post">
-          </form>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Post</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+          <td class="post-user"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %></td>
+          <td><%= post.createdAt.toLocaleDateString() %></td>
+          <% if (post.image) { %>
+          <td><img src="<%= post.image %>" alt=""/></td>
           <% } %>
-        </section>
-        <thead>
-          <th>Comments</th>
-        </thead>
-        <tbody>
-            <% post.comments.forEach(function(c) { %>
-              <tr>
-                <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
-                <td><%= c.createdAt.toLocaleDateString() %></td>
-                <td><%= c.content %></td>
-                <td>
-                  <% if (user?._id.equals(c.user)) { %>
-                    <a href="/comments/<%= c._id %>/edit">Edit Comment</a>
-                  <% } %>
-                </td>
-              <tr>
-            <% }); %>
-            <% if (user) { %>
-              <h2>New Comment</h2>
-              <form action="/posts/<%= post._id %>/comments" method="POST">
-                <input name="content">
-                <button type="submit">ADD COMMENT</button>
+          <td><%= post.content %></td>
+          <td>
+            <% if (user?._id.equals(post.user)) { %>
+              <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
+                <button type="submit">Delete Post</button>
               </form>
-            <% } %>
-          </tbody>
+              <% } %>
+          </td>
+        </tr>
+      </tbody>
+  </table><br>
+    <% if (user?._id.equals(post.user)) { %>
+      <form id="update-post-form" method="POST"
+      action="/posts/<%= post._id %>?_method=PUT">
+      <label>Update Post:</label>
+      <textarea name="content"></textarea>
+      <input type="submit" value="Update Post">
+    </form>
+    <% } %>
+</section> 
+<thead>
+    <th>Comments</th>
+  </thead>
+  <tbody>
+    <% post.comments.forEach(function(c) { %>
+      <tr>
+        <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
+        <td><%= c.createdAt.toLocaleDateString() %></td>
+        <td><%= c.content %></td>
+        <td>
+          <% if (user?._id.equals(c.user)) { %>
+            <a href="/comments/<%= c._id %>/edit">Edit Comment</a>
+          <% } %>
+        </td>
+      <tr>
+    <% }); %>
+    <% if (user) { %>
+      <h2>New Comment</h2>
+      <form id="add-comment-form" action="/posts/<%= post._id %>/comments" method="POST">
+        <input name="content">
+        <button type="submit">ADD COMMENT</button>
+      </form>
+    <% } %>
+  </tbody>
 <%- include('../partials/footer') %>
