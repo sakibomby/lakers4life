@@ -16,7 +16,9 @@
           <% if (post.image) { %>
           <td><img src="<%= post.image %>" alt=""/></td>
           <% } %>
-          <td><%= post.content %></td>
+          <tr>
+          <td id="pcontent"><%= post.content %></td>
+          </tr>
           <td>
             <% if (user?._id.equals(post.user)) { %>
               <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
@@ -30,27 +32,27 @@
     <% if (user?._id.equals(post.user)) { %>
       <form id="update-post-form" method="POST"
       action="/posts/<%= post._id %>?_method=PUT">
+      <label>Image url:</label>
+      <input type="text" name="image" /><br>
       <label>Update Post:</label>
-      <textarea name="content"></textarea>
-      <input type="submit" value="Update Post">
+      <textarea name="content"><%= post.content %></textarea>
+      <input type="submit" value="Update">
     </form>
     <% } %>
 </section> 
 <thead>
-    <th>Comments</th>
+    <h2>Comments</h2>
   </thead>
   <tbody>
     <% post.comments.forEach(function(c) { %>
-      <tr>
         <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
         <td><%= c.createdAt.toLocaleDateString() %></td>
-        <td><%= c.content %></td>
+      <td><%= c.content %></td>
         <td>
           <% if (user?._id.equals(c.user)) { %>
             <a href="/comments/<%= c._id %>/edit">Edit Comment</a>
           <% } %>
         </td>
-      <tr>
     <% }); %>
     <% if (user) { %>
       <h2>New Comment</h2>

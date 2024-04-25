@@ -9,10 +9,27 @@ body {
   margin: 0;
   height: 100vh;
   display: grid;
+  font-size: larger;
+  font-weight: bolder;
   grid-template-rows: 100px 2fr;
   grid-template-areas: 
     "nav"
     "main"
+}
+
+#pcontent {
+  border-style: solid;
+  border-radius: 5px;
+  background-color: #ebe36a88;
+}
+
+#home {
+  font-family: "Oooh Baby", cursive;
+  font-size: 70px;
+  font-weight: 1000;
+  font-style: bold;
+  color: #d3de0e;
+  text-align: center;
 }
 
 footer {
@@ -98,32 +115,42 @@ body > main {
   grid-gap: 1rem;
 }
 
-#show-page div:nth-child(even) {
+#show-page th {
   font-weight: bold;
+  font-size: 30px;
+}
+
+/* .comment-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.comment-user > img {
+  border-radius: 50%;
+  height: 30px;
 }
 
 .comment {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.comment-user {
-  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.comment-user img {
-  border-radius: 50%;
-  height: 40px;
+  padding: 40px;
+  height: auto;
+  font-size: 40px;
+  text-align: center;
 }
 
 #add-comment-form ,
 #update-post-form ,
 #add-post-form  {
-  font-size: 30px;
-  padding: 5px;
-  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10%;
+  align-content: center;
+  text-align: center;
+}
+.post-user > img{
+border-radius: 50%;
+height: 50px;
 }
