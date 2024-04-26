@@ -11,25 +11,24 @@
   Lakers4Life is an app for Lakers fans that want to share anything related to the Lakers within the Lakers4Life community. Fans are able to post images and write content to share their thoughts on the team, players, fan gear, games, or even threir favorite meet up spot to watch the game with their friends.
 
   </div>
-    ## :camera_flash: Screenshots 
 
+## :camera_flash: Screenshots
   |   Description | Screenshot | 
   |:-------------:| -----------|
   | <h3>Home Page</h3> | <img
-    src=""
+    src="Screenshots/Home Page.png"
     width="700"
   /> |
   | <h3 align="center">Posts Page</h3> | <img
-    src=""
+    src="Screenshots/Posts Page.png"
     width="700"
   /> |
   | <h3 align="center">Show Page</h3> | <img
-    src=""
+    src="Screenshots/Show Page.png"
     width="700"
   /> |
 
-    ## :computer: Technologies Used
-
+## :computer: Technologies Used
 
   ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
   ![Express](https://img.shields.io/badge/-Express-05122A?style=flat&logo=express)
@@ -48,29 +47,41 @@
   ## :fire: Getting Started
 
 <details open>
-  <summary> How to Create a Post </summary>
-    1. Type in your answers to each of the 3 randomly-generated mini-survey questions.
-    2. Click on "Add Survey" to post your responses so others may see them.
-    3. Click on the "X" in the bottom-right corner to delete a post.
+  <summary> Sign Up Using Google OAuth </summary>
+    1. Click on the "Sign Up/Login" Link in the navigation bar.
+    2. Sign in with your Google account or create a free account.
 </details>
 
 <details>
-  <summary> How to Interact With Others' Posts </summary>
-    1. Posts may be "liked" or "disliked" by clicking on the thumbs up or down button on their card.
-    2. To reveal the author of a post, hover over the `Who could it possibly be?` button.
-    3. To see more posts by the same user, click on the revealed username and profile picture.
+  <summary> Add A Posts </summary>
+    1. Click the "Add Post" link.
+    2. Add url to add images and text in the provided area to write about anything Lakers!
+    3. Click "Add Post" to add.
+</details>
+
+<details>
+  <summary> Comment On A Post </summary>
+    1. When viewing a post, add your comment to the comment form and click add comment.
 </details>
 
 <details open>
   <summary> Trello Board </summary>
-  <a href=""
-    >  </a
+  <a href="https://trello.com/b/bepTwYwH/lakers-fan-app"
+    > https://trello.com/b/bepTwYwH/lakers-fan-app </a
   >
 </details>
 
 <details open>
   <summary> Deployed Link (Heroku) </summary>
-  <a href=""
-    > </a
+  <a href="https://lakers4life-190eb8da4097.herokuapp.com/"
+    > https://lakers4life-190eb8da4097.herokuapp.com/ </a
   >
 </details>
+
+## :satellite: Upcoming Features
+
+- [:x:] View current and previous team roster, stats and schedules.
+
+- [:x:] Create and post all time greatest Lakers starting lineup.
+
+- [:x:] Create a like button for posts and comments.
