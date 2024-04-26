@@ -14,11 +14,9 @@
           <td class="post-user"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %></td>
           <td><%= post.createdAt.toLocaleDateString() %></td>
           <% if (post.image) { %>
-          <td><img src="<%= post.image %>" alt=""/></td>
-          <% } %>
-          <tr>
-          <td id="pcontent"><%= post.content %></td>
-          </tr>
+            <td id="post-img"><img src="<%= post.image %>" alt=""/></td>
+            <% } %>
+            <td id="pcontent"><%= post.content %></td>
           <td>
             <% if (user?._id.equals(post.user)) { %>
               <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
@@ -45,9 +43,9 @@
   </thead>
   <tbody>
     <% post.comments.forEach(function(c) { %>
-        <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
+        <div id="comment"><%= c.content %></div>
+        <div class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></div>
         <td><%= c.createdAt.toLocaleDateString() %></td>
-      <td><%= c.content %></td>
         <td>
           <% if (user?._id.equals(c.user)) { %>
             <a href="/comments/<%= c._id %>/edit">Edit Comment</a>
