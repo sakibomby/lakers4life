@@ -13,20 +13,19 @@
   </div>
 
 ## :camera_flash: Screenshots
-  |   Description | Screenshot | 
-  |:-------------:| -----------|
-  | <h3>Home Page</h3> | <img
+
+   <h3 align="center">Home Page</h3>  <img
     src="Screenshots/Home Page.png"
     width="700"
-  /> |
-  | <h3 align="center">Posts Page</h3> | <img
+ 
+   <h3 align="center">Posts Page</h3>  <img
     src="Screenshots/Posts Page.png"
     width="700"
-  /> |
-  | <h3 align="center">Show Page</h3> | <img
+  
+   <h3 align="center">Show Page</h3>  <img
     src="Screenshots/Show Page.png"
     width="700"
-  /> |
+  
 
 ## :computer: Technologies Used
 
