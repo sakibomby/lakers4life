@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url(public/stylesheets/LakersLegends.jpeg);
+  background-image: url(../images/LakersLegends.jpeg);
   background-position: center;
   background-size: cover;
   margin: 0;
